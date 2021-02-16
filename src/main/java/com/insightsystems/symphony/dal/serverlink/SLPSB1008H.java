@@ -23,7 +23,7 @@ public class SLPSB1008H extends HttpCommunicator implements Monitorable, Control
     }
 
     @Override
-    protected void authenticate() throws Exception {}
+    protected void authenticate() {}
 
     @Override
     public List<Statistics> getMultipleStatistics() throws Exception {
@@ -214,7 +214,7 @@ public class SLPSB1008H extends HttpCommunicator implements Monitorable, Control
      * Creates a char array used for outlet control and initialises it with a specified value
      * @param count Number of elements for the array
      * @param value Initial value for each element of the array.
-     * @return
+     * @return ControlArray
      */
     private char[] createControlArray(int count,char value){
         char[] returnArray = new char[count];
@@ -230,16 +230,5 @@ public class SLPSB1008H extends HttpCommunicator implements Monitorable, Control
         }else{
             outletNames.put(outlet,name);
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-        SLPSB1008H pdu = new SLPSB1008H();
-        pdu.setHost("***REMOVED***");
-        pdu.setPort(80);
-        pdu.setProtocol("http");
-        pdu.setPassword("1234");
-        pdu.setLogin("snmp");
-        pdu.init();
-        ((ExtendedStatistics)pdu.getMultipleStatistics().get(0)).getStatistics().forEach((k,v) -> System.out.println(k + " : " + v));
     }
 }
