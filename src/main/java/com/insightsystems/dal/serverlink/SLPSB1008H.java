@@ -17,9 +17,17 @@ import java.util.regex.Pattern;
  * Serverlink SLPSB1008H PDU Device Adapter
  * Company: Insight Systems
  * @author Jayden Loone (@JaydenLInsight)
- * @version
+ * @version 0.9
  *
- * For control of
+ * Monitored Statistics:
+ *  - Outlet Name
+ *  - Outlet State
+ *  - MAC Address
+ *  - Serial Number
+ *  - Current Draw
+ * Control:
+ *  - Individual outlets
+ *  - All outlets grouped
  */
 public class SLPSB1008H extends HttpCommunicator implements Monitorable, Controller, Pingable {
     public static Pattern firmwarePattern = Pattern.compile("Firmware[\\s\\r\\n]+Version[\\s\\S]+?>([\\w\\d.-]+)</font>");
